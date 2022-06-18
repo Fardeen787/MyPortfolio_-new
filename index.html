@@ -22,7 +22,7 @@
         <img src="images/back.jpeg" alt="">
         <h3 class="name">Fardeen Khan</h3>
         <!-- <p class="post">Web Developer |||||| AWS Cloud ||||| Devops</p> -->
-        <div id="sequence" style="color: rgb(235, 235, 36); font-size: 20px;"></div>
+        <div id="sequence" style="color: rgb(244, 244, 96); font-size: 20px;"></div>
         
     </div>
 
@@ -56,7 +56,7 @@
     
 
     <marquee direction="left"  style="color:white">
-        <h1>This website is under constuction</h1>
+        <h1>This website is under construction</h1>
     </marquee>
 
 
@@ -95,6 +95,11 @@
             <span>10+</span>
             <h3>project completed</h3>
         </div>
+        <div class="box">
+            <span>Skills</span>
+            <div id="sequence2" style="color: rgb(244, 244, 96); font-size: 20px;"></div>
+        </div>
+
 
        
 
@@ -136,6 +141,13 @@
         <p>- Developed a spam classifier which will automaticaly detect wheather the message or email is spam or ham</p>
         <p>- Tech used- Streamlit,Python,ML</p>
     </div>
+    <div class="box">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>Portfolio Builder</h3>
+        <p>- Developed a Portfolio Builder using REACTJS which will first take the input from the user and make the portfolio by using that details</p>
+        <p>- Tech used- ReactJS,Express,Nodejs,Mongodb,Bootstrap</p>
+    </div>
+
 
     <!-- <div class="box">
         <i class="fas fa-graduation-cap"></i>
@@ -183,6 +195,12 @@
     <div class="box">
         <img src="images/img3.png" alt="">
     </div>
+    <div class="box">
+        <img src="images/img4.png" alt="">
+    </div>
+    <div class="box">
+        <img src="images/img5.jpg" alt="">
+    </div>
 
     <!-- <div class="box">
         <img src="images/img4.jpg" alt="">
@@ -216,8 +234,7 @@
 
         <div class="info">
             <h3> <i class="fas fa-envelope"></i> ffkhan@mitaoe.ac.in </h3>
-            <h3> <i class="fas fa-phone"></i> +123-456-7890 </h3>
-            <h3> <i class="fas fa-phone"></i> +111-222-3333 </h3>
+            <h3> <i class="fas fa-phone"></i>7875480973</h3>
             <h3> <i class="fas fa-map-marker-alt"></i> Akola,Maharashtra, india - 444001. </h3>
         </div>
 
@@ -274,6 +291,25 @@
         }
 
     }
+
+
+    //For skills
+    var example1 = ['Cloud','C','C++','HTML','CSS','Javascript','AWS','Docker','OOPS','MongoDB','Mysql'];
+
+textSequence1(0);
+function textSequence1(i) {
+
+    if (example1.length > i) {
+        setTimeout(function() {
+            document.getElementById("sequence2").innerHTML = example1[i];
+            textSequence1(++i);
+        }, 1000); // 1 second (in milliseconds)
+
+    } else if (example1.length == i) { // Loop
+        textSequence1(0);
+    }
+
+}
 </script>
 
 
