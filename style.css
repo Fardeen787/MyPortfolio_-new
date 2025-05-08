@@ -42,6 +42,10 @@ body{
     padding-left: 35rem;
 }
 
+body.menu-open {
+    overflow: hidden;
+}
+
 section{
     min-height: 100vh;
     padding:1rem;
@@ -132,7 +136,8 @@ header .navbar ul li a{
     border-radius: 5rem;
 }
 
-header .navbar ul li a:hover{
+header .navbar ul li a:hover,
+header .navbar ul li a.active {
     background:var(--yellow);
 }
 
@@ -144,7 +149,7 @@ header .navbar ul li a:hover{
     cursor: pointer;
     font-size: 2.5rem;
     padding:1rem 1.5rem;
-    z-index: 1000;
+    z-index: 1001;
     display: none;
 }
 
@@ -276,6 +281,7 @@ header .navbar ul li a:hover{
     background:var(--yellow);
 }
 
+/* Achievement section styles */
 .portfolio .box-container{
     display: flex;
     align-items: center;
@@ -284,23 +290,39 @@ header .navbar ul li a:hover{
     padding:2rem 0;
 }
 
-.portfolio .box-container .box{
-    height: 20rem;
-    width:26rem;
+.portfolio .box-container .box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    width: 26rem;
     border-radius: 1rem;
-    margin:2rem;
+    margin: 2rem;
     overflow: hidden;
     cursor: pointer;
+    background: #222;
 }
 
-.portfolio .box-container .box img{
-    height:100%;
-    width:100%;
+.portfolio .box-container .box img {
+    height: 20rem;
+    width: 100%;
     object-fit: cover;
 }
 
-.portfolio .box-container .box:hover img{
+.portfolio .box-container .box:hover img {
     transform: scale(1.2);
+}
+
+.portfolio .box-container .box .achievement-desc {
+    padding: 1.5rem;
+    color: #fff;
+    font-size: 1.6rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.portfolio .box-container .box:hover .achievement-desc {
+    color: var(--yellow);
 }
 
 .contact .row{
@@ -370,28 +392,9 @@ header .navbar ul li a:hover{
     display: none;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* media queries  */
 
 @media (max-width:1200px){
-
     html{
         font-size: 55%;
     }
@@ -399,41 +402,66 @@ header .navbar ul li a:hover{
     .home{
         padding:1rem 4rem;
     }
-
 }
 
 @media (max-width:991px){
+    header{
+        left:-120%;
+    }
 
-   header{
-       left:-120%;
-   }
+    #menu{
+        display: block;
+    }
 
-   #menu{
-       display: block;
-   }
+    header.toggle{
+        left:0%;
+        width: 100%;
+        height: 100vh;
+        padding-top: 2rem;
+        overflow-y: auto;
+    }
 
-   header.toggle{
-    left:0%;
-   }
-
-   body{
-       padding:0;
-   }
-
+    body{
+        padding:0;
+    }
+    
+    /* Ensure the image is visible and properly sized in mobile view */
+    header .user img {
+        height: 14rem;
+        width: 14rem;
+        margin-top: 3rem;
+        display: block;
+    }
+    
+    header .user {
+        margin-top: 2rem;
+    }
 }
 
 @media (max-width:768px){
-
     html{
         font-size: 50%;
     }
- 
- }
+}
 
 @media (max-width:400px){
-
     header{
         width: 100vw;
+    }
+    
+    header .user img {
+        height: 12rem;
+        width: 12rem;
+    }
+    
+    header .user .name {
+        font-size: 2.8rem;
+    }
+    
+    /* Make menu button more visible */
+    #menu {
+        background: var(--yellow);
+        color: #fff;
     }
 
     .heading{
@@ -455,20 +483,4 @@ header .navbar ul li a:hover{
     .contact .row form{
         margin:3rem 0;
     }
-
-    .change_content:after{
-        content: '';
-        animation: changetext 10s infinite linear;
-        color: aqua 
-    
-    }
-
-    .sequence{
-        color: whitesmoke;
-        font-family: 'Nunito', sans-serif;
-        font-size: 20px;
-    }
-
-   
-
- }
+}
